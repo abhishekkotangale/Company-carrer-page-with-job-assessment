@@ -27,6 +27,7 @@
             <th scope="col">Title</th>
             <th scope="col">Description</th>
             <th scope="col">Required Knowledge</th>
+            <th scope="col">Salary</th>
             <th scope="col">Images</th>
             <th scope="col">update</th>
             <th scope="col">Delete</th>
@@ -44,8 +45,9 @@
             <td><?php echo $result['id'];?></td>
 
             <td><?php echo $result['job_name'];?></td>
-            <td><?php echo $result['company_desc'];?></td>
-            <td><?php echo $result['job_desc'];?></td>
+            <td><?php echo $result['jobDesc'];?></td>
+            <td><?php echo $result['skills'];?></td>
+            <td><?php echo $result['salary'];?></td>
             <td><img src="<?php echo $result['pic'];?>" width="100" height="100"></td>
             <td><a href="update.php?update=<?php echo $result['id']; ?>"><i class="fa fa-edit icon" style="font-size:40px; color:#000;"></i></a></td>
             <td><a href="delete.php?deleteData=<?php echo $result['id']; ?>"><i class="fa fa-trash icon" style="font-size:40px; color:#000;"></i></a></td>
@@ -69,13 +71,16 @@
         <form action="upload.php" method="post" enctype="multipart/form-data">
         
             <div class="mb-3">
-                <input type="text" class="form-control" name="jobName" placeholder="Company Name">
+                <input type="text" class="form-control" name="jobName" placeholder="Position">
             </div>
             <div class="mb-3">
-                <input type="text" class="form-control" name="aboutCompany" placeholder="Job Description">
+                <input type="text" class="form-control" name="jobdesc" placeholder="Job Description">
             </div>
             <div class="mb-3">
-                <input type="text" class="form-control" name="jobDesc" placeholder="Skills Required">
+                <input type="text" class="form-control" name="skills" placeholder="Skills Required">
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" name="salary" placeholder="Salary">
             </div>
             <div class="mb-3">
                 <input type="file" class="form-control" name="file">
