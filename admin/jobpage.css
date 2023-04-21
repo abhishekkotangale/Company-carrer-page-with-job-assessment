@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Courgette', cursive;
+    height: 100vh;
+}
+.jobpagetitle{
+    background-color: lightgreen;
+}
+.jobtitle{
+    padding: 120px;
+}
+
+.alljobs{
+    padding-top: 75px;
+}
