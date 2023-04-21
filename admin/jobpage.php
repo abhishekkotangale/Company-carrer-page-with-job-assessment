@@ -45,33 +45,10 @@
                 <img src="<?php echo $result['pic'];?>" alt="" class="img-thumbnail">
                   <div class="caption">
                     <h3><?php echo $result['job_name'];?></h3>
-                    <h5><?php echo $result['company_desc'];?></h5>
-                    <p><?php echo $result['job_desc'];?></p>
-
-                     
-                    <?php
-
-                          if(isset($_SESSION['username_u'])){
-                            $email = $_SESSION['email'];
-                          
-                          $email_search = " select * from software_developer where emailu='$email' ";
-                          $query = mysqli_query($con , $email_search);
-
-                          $email_count = mysqli_num_rows($query);
-                          
-
-                          if($email_count){
-                            $email_pass = mysqli_fetch_assoc($query);
-                            echo '<a class="btn btn-primary btn-block" disabled>Already Applied</a>';
-              
-                          }else{
-                            echo '<a class="btn btn-primary btn-block" href="software_company.php">Apply</a>';
-                          }
-                          }
-
-
-                    ?>
-                    
+                    <h5><?php echo $result['jobDesc'];?></h5>
+                    <p><?php echo $result['skills'];?></p>
+                    <p><?php echo $result['salary'];?></p>
+                    <a class="btn btn-primary btn-block" href="cart-add.php?job_id=<?php echo $result['id']; ?>">Apply</a>
                   </div>  
             </div>
             <?php
