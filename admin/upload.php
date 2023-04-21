@@ -14,8 +14,9 @@
 
     if(isset($_POST['submit'])){
         $jbName = $_POST['jobName'];
-        $abtDesc = $_POST['aboutCompany'];
-        $jbdes = $_POST['jobDesc'];
+        $jobDesc = $_POST['jobdesc'];
+        $skills = $_POST['skills'];
+        $salary = $_POST['salary'];
         $file = $_FILES['file'];
 
         $filename = $file['name'];
@@ -27,7 +28,7 @@
 
             move_uploaded_file($filepath,$destfile);
 
-            $insertquery = "insert into addjobprofile(job_name,company_desc,job_desc,pic) values('$jbName','$abtDesc','$jbdes','$destfile')";
+            $insertquery = "insert into addjobprofile(job_name,jobDesc,skills,salary,pic) values('$jbName','$jobDesc','$skills','$salary','$destfile')";
 
             $query = mysqli_query($con,$insertquery);
 
