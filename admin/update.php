@@ -41,9 +41,10 @@ include '../assets/connection.php';
 
 if(isset($_POST['submit'])){
     
-    $jb_name = $_POST['product_name'];
-    $company_desc = $_POST['product_desc'];
-    $jb_desc = $_POST['job_desc'];
+    $jb_name = $_POST['jobName'];
+    $jbDesc= $_POST['jobDesc'];
+    $skills = $_POST['skills'];
+    $salary = $_POST['salary'];
     $file = $_FILES['file'];
 
     $filename = $file['name'];
@@ -59,7 +60,7 @@ if(isset($_POST['submit'])){
 
         
 
-        $updatequery = "update addjobprofile set job_name='$jb_name',company_desc='$company_desc', job_desc='$jb_desc', pic = '$destfile' where id='$id'";
+        $updatequery = "update addjobprofile set job_name='$jb_name',jobDesc='$jbDesc', skills='$skills', salary='$salary', pic = '$destfile' where id='$id'";
 
         $query = mysqli_query($con,$updatequery);
 
@@ -80,13 +81,16 @@ if(isset($_POST['submit'])){
 
         <form action="" method="post" enctype="multipart/form-data">
             <div class="mb-3">
-                <input type="text" class="form-control" name="product_name" placeholder="File Title" value="<?php echo $result['job_name'];?>">
+                <input type="text" class="form-control" name="jobName" placeholder="File Title" value="<?php echo $result['job_name'];?>">
             </div>
             <div class="mb-3">
-                <input type="text" class="form-control" name="product_desc" placeholder="File Description" value="<?php echo $result['company_desc'];?>">
+                <input type="text" class="form-control" name="jobDesc" placeholder="File Description" value="<?php echo $result['jobDesc'];?>">
             </div>
             <div class="mb-3">
-                <input type="text" class="form-control" name="job_desc" placeholder="cost" value="<?php echo $result['job_desc'];?>">
+                <input type="text" class="form-control" name="skills" placeholder="cost" value="<?php echo $result['skills'];?>">
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" name="salary" placeholder="cost" value="<?php echo $result['salary'];?>">
             </div>
             <div class="mb-3">
                 <input type="file" class="form-control" name="file" >
