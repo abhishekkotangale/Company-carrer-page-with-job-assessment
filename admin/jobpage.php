@@ -48,7 +48,7 @@
                     <h5><?php echo $result['jobDesc'];?></h5>
                     <p><?php echo $result['skills'];?></p>
                     <p><?php echo $result['salary'];?></p>
-                    <a class="btn btn-primary btn-block" href="cart-add.php?job_id=<?php echo $result['id']; ?>">Apply</a>
+                    <a class="btn btn-primary btn-block" href="applyjobform.php?job_id=<?php echo $result['id']; ?>">Apply</a>
                   </div>  
             </div>
             <?php

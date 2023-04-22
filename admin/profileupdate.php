@@ -66,7 +66,7 @@ if(isset($_POST['submit'])){
 
         $updatequery = "update users set username_user='$username',email='$email', mobile='$mobile',city='$city',graduationCollege='$graduationCollege', Degree='$Degree',gradPer='$gradPer',hscCollege='$hscCollege', hscPercentage='$hscPercentage',workExperience='$workExperience', userpic = '$destfile' where id='$id'";
 
-        $query = mysqli_query($con,$updatequery);
+        $query = mysqli_query($con,$updatequery); 
 
         if($query){
             header('location:profile.php');
