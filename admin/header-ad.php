@@ -46,7 +46,7 @@
             <a class="nav-link" href="addjob.php">Add Job</a>
           </li>';
           echo '<li class="nav-item">
-            <a class="nav-link" href="studentApplied.php">Student Apply</a>
+            <a class="nav-link" href="studentresponse.php">Student Apply</a>
           </li>';
           
           }else{

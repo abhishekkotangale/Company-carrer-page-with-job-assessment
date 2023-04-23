@@ -35,7 +35,7 @@ include 'header-ad.php';
 
 if(isset($_POST['submit'])){
     
-    
+    $userskills = $_POST['userskills'];
     $file = $_FILES['file'];
 
     $filename = $file['name'];
@@ -47,7 +47,7 @@ if(isset($_POST['submit'])){
 
         move_uploaded_file($filepath,$destfile);
 
-        $insertquery = "insert into jobapplied(uid,jobid,resume,status) values('$uid','$jobid','$destfile','Pending')";
+        $insertquery = "insert into jobapplied(uid,jobid,userskills,resume,status) values('$uid','$jobid',''$userskills,'$destfile','Pending')";
 
         
 
@@ -99,6 +99,9 @@ if(isset($_POST['submit'])){
             </div>
             <div class="mb-3">
                 <input type="text" class="form-control" name="workExperience" placeholder="Work Experience" value="<?php echo $result['workExperience'];?>" disabled>
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" name="userskills" placeholder="User Skills">
             </div>
             <div class="mb-3">
                 <input type="file" class="form-control" name="file" >

@@ -20,8 +20,8 @@
 <table class="table table-responsive container">
   <thead>
     <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Company</th>
+      <th scope="col">Position</th>
+      <th scope="col">Resume</th>
       <th scope="col">Message</th>
       <th scope="col">Status</th>
     </tr>
@@ -29,33 +29,32 @@
   <tbody>
   <?php
     include '../assets/connection.php';
-    $email = $_SESSION['email'];
+    $uid = $_SESSION['id'];
 
-     $email_search = "select * from software_developer where emailu = '$email'";
+    $selectQuery = "SELECT * FROM jobapplied INNER JOIN addjobprofile on jobapplied.jobid = addjobprofile.jobidcom where uid = '$uid'";
 
-     $query = mysqli_query($con , $email_search);
+    $query = mysqli_query($con , $selectQuery);
 
-     $email_count = mysqli_num_rows($query);
-
-     if($email_count){
-        $email_pass = mysqli_fetch_assoc($query);
-        $status = $email_pass['status'];
-        $name = $email_pass['first_name'];
+    while($result = mysqli_fetch_array($query)){
     
-    if($status == "Approved"){
+      $status = $result['status'];
+     
+    
+    if($status == "Selected"){
         ?>
     <tr>
-        <td><?php echo $name  ?></td>
-        <td>software developer</td>
-      <td>Congratulation, Your Resume got Shortlisted you Will get mail for other Rounds from Company</td>
+          <td><?php echo $result['job_name'];  ?></td>
+          <td><a href="<?php echo $result['resume'];?>" target="_blank">Resume</a></td>
+          <td class="text-success">Congratulation you are shortlisted for this position</td>
       <td class="text-success">Accepted</td>
     </tr>
     <?php
-    }else if($status == "Decline"){
+    }else if($status == "Not Selected"){
     ?>
     <tr>
-    <td><?php echo $name  ?></td>
-        <td>software developer</td>
+    
+          <td><?php echo $result['job_name'];  ?></td>
+          <td><a href="<?php echo $result['resume'];?>" target="_blank">Resume</a></td>
       <td>Sorry,Your Resume doesn't get Shortlisted. You have lots of Skills We wish for your better Future</td>
       <td class="text-danger">Rejected</td>
     </tr>
@@ -63,15 +62,15 @@
     }else{
         ?>
         <tr>
-        <td><?php echo $name  ?></td>
-          <td>software developer</td>
+        <td><?php echo $result['job_name'];  ?></td>
+          <td><a href="<?php echo $result['resume'];?>" target="_blank">Resume</a></td>
           <td>Your Resume Under Review</td>
           <td>Pending</td>
         </tr>
         <?php
         }
     }
-   
+  
 ?>
 
   </tbody>

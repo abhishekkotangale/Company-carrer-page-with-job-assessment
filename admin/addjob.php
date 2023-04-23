@@ -42,15 +42,15 @@
             ?>
 
           <tr>
-            <td><?php echo $result['id'];?></td>
+            <td><?php echo $result['jobidcom'];?></td>
 
             <td><?php echo $result['job_name'];?></td>
             <td><?php echo $result['jobDesc'];?></td>
             <td><?php echo $result['skills'];?></td>
             <td><?php echo $result['salary'];?></td>
             <td><img src="<?php echo $result['pic'];?>" width="100" height="100"></td>
-            <td><a href="update.php?update=<?php echo $result['id']; ?>"><i class="fa fa-edit icon" style="font-size:40px; color:#000;"></i></a></td>
-            <td><a href="delete.php?deleteData=<?php echo $result['id']; ?>"><i class="fa fa-trash icon" style="font-size:40px; color:#000;"></i></a></td>
+            <td><a href="update.php?update=<?php echo $result['jobidcom']; ?>"><i class="fa fa-edit icon" style="font-size:40px; color:#000;"></i></a></td>
+            <td><a href="delete.php?deleteData=<?php echo $result['jobidcom']; ?>"><i class="fa fa-trash icon" style="font-size:40px; color:#000;"></i></a></td>
           </tr>
 
 

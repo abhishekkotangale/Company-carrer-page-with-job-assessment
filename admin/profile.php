@@ -33,6 +33,24 @@
               <?php
             }
             ?>
+
           
         </tbody>
       </table>
+
+      <div class="delete">
+      <h1 class="text-center p-lg-5 bg-danger">Delete Acoount</h1>
+
+      <?php
+                    include '../assets/connection.php';
+                    $selectQuery = "select * from users";
+                    $query = mysqli_query($con , $selectQuery);
+                    $result = mysqli_fetch_array($query)
+                    
+                   ?>
+                   
+                    <a href="deleteaccount.php?deleteData=<?php echo $_SESSION['id']; ?>">Delete Account</i></a></td>
+                    
+
+
+    </div>

@@ -17,21 +17,29 @@
 
   <?php
     include 'header-ad.php';
+    include '../assets/connection.php';
+    $jobid = $_GET['stureslist'];
+    $showquery = "select * from addjobprofile where jobidcom='$jobid' ";
+    $showData = mysqli_query($con,$showquery);
+
+    $result = mysqli_fetch_array($showData);
   ?>
   
     <div class="table-responsive">
     <table class="table table-hover table-bordered">
-        <h1 class="pb-5 text-center">Software Developer</h1>
+        <h1 class="pb-5 text-center"><?php echo $result['job_name'];?></h1>
         <thead>
           <tr>
             <th scope="col">id</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
+            <th scope="col">Name</th>
             <th scope="col">email</th>
-            <th scope="col">gender</th>
-            <th scope="col">mobile</th>
+            <th scope="col">Hsc college</th>
+            <th scope="col">Hsc percentage</th>
+            <th scope="col">Graduation College</th>
+            <th scope="col">Degree</th>
+            <th scope="col">Graduation Percentage</th>
+            <th scope="col">Work Experience</th>
             <th scope="col">Skills</th>
-            <th scope="col">location</th>
             <th scope="col">Resume</th>
             <th scope="col">Accept Or Decline</th>
           </tr>
@@ -39,30 +47,32 @@
         <tbody>
           <?php
                     include '../assets/connection.php';
-                    $selectQuery = "select * from software_developer";
+                    $jobid = $_GET['stureslist'];
+                    $selectQuery = "SELECT * from jobapplied INNER JOIN users on users.id = jobapplied.uid INNER JOIN addjobprofile on addjobprofile.jobidcom = jobapplied.jobid where jobid = '$jobid'";
                     $query = mysqli_query($con , $selectQuery);
                     while($result = mysqli_fetch_array($query)){
             
 
-          if($result['status'] == "Approved" or $result['status'] == "Pending"){
+          if($result['status'] == "Selected" or $result['status'] == "Pending"){
             ?>
 
           <tr>
-            <td><?php echo $result['id'];?></td>
-
-            <td><?php echo $result['first_name'];?></td>
-            <td><?php echo $result['last_name'];?></td>
-            <td><?php echo $result['emailu'];?></td>
-            <td><?php echo $result['gender'];?></td>
-            <td><?php echo $result['mobile_no'];?></td>
-            <td><?php echo $result['Skills'];?></td>
-            <td><?php echo $result['location'];?></td>
+            <td><?php echo $result['appid'];?></td>
+            <td><?php echo $result['username_user'];?></td>
+            <td><?php echo $result['email'];?></td>
+            <td><?php echo $result['hscCollege'];?></td>
+            <td><?php echo $result['hscPercentage'];?></td>
+            <td><?php echo $result['graduationCollege'];?></td>
+            <td><?php echo $result['Degree'];?></td>
+            <td><?php echo $result['gradPer'];?></td>
+            <td><?php echo $result['workExperience'];?></td>
+            <td><?php echo $result['userskills'];?></td>
             <td><a href="<?php echo $result['resume'];?>" target="_blank">Open</a></td>
             <td><?php if ($result['status'] == "Pending") {
               ?>
-               <a href="accept.php?update=<?php echo $result['id']; ?>">Accept</i></a>
+               <a href="accept.php?update=<?php echo $result['appid']; ?>">Accept</i></a>
               </br>
-               <a href="decline.php?update=<?php echo $result['id']; ?>">Decline</i></a>
+               <a href="decline.php?update=<?php echo $result['appid']; ?>">Decline</i></a>
               
               
               <?php 

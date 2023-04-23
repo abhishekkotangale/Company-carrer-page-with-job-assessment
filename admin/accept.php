@@ -33,13 +33,13 @@
 
 
     $id = $_GET['update'];
-    $showquery = "select * from software_developer where id='$id' ";
+    $showquery = "select * from jobapplied where appid='$id' ";
     $showData = mysqli_query($con,$showquery);
 
     $result = mysqli_fetch_array($showData);
 
 
-    $updatequery = "update software_developer set status = 'Approved' where id='$id'";
+    $updatequery = "update jobapplied set status = 'Selected' where appid='$id'";
 
         $query = mysqli_query($con,$updatequery);
 

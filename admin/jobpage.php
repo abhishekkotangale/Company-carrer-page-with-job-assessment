@@ -37,7 +37,7 @@
           <div class="row text-center container alljobs">
            <?php
                 include '../assets/connection.php';
-                $sql = "select * from addjobprofile";
+                $sql = "SELECT * FROM addjobprofile LEFT JOIN jobapplied on addjobprofile.jobidcom = jobapplied.jobid";
                 $query = mysqli_query($con,$sql);
                 while($result = mysqli_fetch_array($query)){
             ?>
@@ -48,7 +48,19 @@
                     <h5><?php echo $result['jobDesc'];?></h5>
                     <p><?php echo $result['skills'];?></p>
                     <p><?php echo $result['salary'];?></p>
-                    <a class="btn btn-primary btn-block" href="applyjobform.php?job_id=<?php echo $result['id']; ?>">Apply</a>
+                    <?php
+                    $uid = $_SESSION['id'];
+                    $jobid = $result['jobidcom'];
+                    if($result['uid']=="$uid" and $result['jobid']=="$jobid"){
+                      ?>
+                      <a class="btn btn-primary btn-block" disabled>Already Applied</a>
+                      <?php
+                    }else{
+                      ?>
+                      <a class="btn btn-primary btn-block" href="applyjobform.php?job_id=<?php echo $result['jobidcom']; ?>">Apply</a>
+                      <?php
+                    }
+                    ?>
                   </div>  
             </div>
             <?php
