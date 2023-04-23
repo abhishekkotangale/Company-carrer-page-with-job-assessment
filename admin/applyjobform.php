@@ -47,7 +47,7 @@ if(isset($_POST['submit'])){
 
         move_uploaded_file($filepath,$destfile);
 
-        $insertquery = "insert into jobapplied(uid,jobid,userskills,resume,status) values('$uid','$jobid',''$userskills,'$destfile','Pending')";
+        $insertquery = "insert into jobapplied(uid,jobid,userskills,resume,status) values('$uid','$jobid','$userskills','$destfile','Pending')";
 
         
 
