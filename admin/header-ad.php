@@ -22,7 +22,7 @@
     <title>Hello, world!</title>
   </head>
   <body>
-  <nav class="navbar navbar-expand-lg">
+  <nav class="navbar navbar-expand-lg ">
   <div class="container">
     <a class="navbar-brand" href="#"><i class="fas fa-crown"></i><span class="brand-name">Job Jeevan</span></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,7 +32,7 @@
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
           <li class="nav-item">
-            <a class="nav-link" href="jobpage.php">Home</a>
+            <a class="nav-link text-white" href="jobpage.php">Home</a>
           </li>
       
 
@@ -40,21 +40,24 @@
 
           if(isset( $_SESSION['username'])){
             echo '<li class="nav-item">
-            <a class="nav-link" href="jobpage.php">jobs</a>
+            <a class="nav-link text-white" href="jobpage.php">jobs</a>
           </li>';
            echo '<li class="nav-item">
-            <a class="nav-link" href="addjob.php">Add Job</a>
+            <a class="nav-link text-white" href="addjob.php">Add Job</a>
           </li>';
           echo '<li class="nav-item">
-            <a class="nav-link" href="studentresponse.php">Student Apply</a>
+            <a class="nav-link text-white" href="studentresponse.php">Student Apply</a>
           </li>';
           
           }else{
             echo '<li class="nav-item">
-            <a class="nav-link" href="jobapplied.php">Job History</a>
+            <a class="nav-link text-white" href="exam.php">Exam</a>
+          </li>';
+            echo '<li class="nav-item">
+            <a class="nav-link text-white" href="jobapplied.php">Job History</a>
           </li>';
           echo '<li class="nav-item">
-          <a class="nav-link" href="profile.php">Profile</a>
+          <a class="nav-link text-white" href="profile.php">Profile</a>
           </li>';
           }
            
@@ -63,7 +66,7 @@
 
        
         <li class="nav-item">
-          <a class="nav-link" href="logout.php">Logout</a>
+          <a class="nav-link text-white" href="logout.php">Logout</a>
         </li>
 
         

@@ -21,7 +21,7 @@
     if($query){
         ?>
         <script>
-            alert("deleted Successfully";)
+            alert("deleted Successfully");
         </script>
        
         <?php
@@ -29,7 +29,7 @@
     }else{
         ?>
         <script>
-            alert("deleted Successfully";)
+            alert("deleted Successfully");
         </script>
 
         <?php
